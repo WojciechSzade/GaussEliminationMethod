@@ -1,0 +1,11 @@
+Zadanie Metoda eliminacji Gaussa:
+
+Utworzenie repozytorium
+	
+Implementacja podstawowej metody eliminacji Gaussa (każdy z członków zespołu implementuje oddzielną funkcjonalność -> met. eliminacji Gaussa, podstawienie wsteczne; dodanie wyników pracy do repozytorium
+	
+Implementacja metody wyboru elementu głównego (każda z osób pisze swoją wersję - modyfikacja tego samego pliku - dodanie wyniku do repozytorium - rozwiązanie konfliktu)
+	
+Stworzenie osobnych gałęzi z testami programu, umieszczenie testów w pliku Makefile
+	
+Scalenie gałęzi z gałęzią główną
