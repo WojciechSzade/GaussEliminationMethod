@@ -37,7 +37,7 @@ void printToScreen(Matrix *mat) {
 	for (i = 0; i<mat->r; i++) {
 		printf("  ");
 		for (j = 0; j < mat->c; j++) {
-			printf("%f ", mat->data[i][j]);
+			printf("%.8f ", mat->data[i][j]);
 		}
 		printf("; \n");
 	}
