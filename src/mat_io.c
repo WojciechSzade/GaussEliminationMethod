@@ -34,16 +34,16 @@ Matrix * readFromFile(char * fname) {
 }
 
 void printToScreen(Matrix *mat) {
-    int i,j;
-    printf("[ \n");
-    for (i = 0; i<mat->r; i++) {
-        printf("  ");
-        for (j = 0; j < mat->c; j++) {
-            printf("%f ", mat->data[i][j]);
-        }
-        printf("; \n");
-    }
-    printf("]\n");
+	int i,j;
+	printf("[ \n");
+	for (i = 0; i<mat->r; i++) {
+		printf("  ");
+		for (j = 0; j < mat->c; j++) {
+			printf("%.8f ", mat->data[i][j]);
+		}
+		printf("; \n");
+	}
+	printf("]\n");
 }
 
 Matrix * createMatrix(int r, int c) {
