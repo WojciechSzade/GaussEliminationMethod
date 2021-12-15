@@ -2,7 +2,7 @@
 #define _MAT_IO_H
 
 typedef struct _Matrix {
-    int r,c;
+    int r, c;
     double **data;
 } Matrix;
 
