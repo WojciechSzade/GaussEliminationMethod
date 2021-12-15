@@ -8,4 +8,4 @@ test: all
 	bin/gauss dane/A3 dane/b3
 	bin/gauss dane/A4 dane/b4
 	bin/gauss dane/A5 dane/b5
-	bin/gauss dane/A6 dane/b6
+
