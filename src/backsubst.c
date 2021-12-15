@@ -7,16 +7,16 @@
 int backsubst(Matrix *x, Matrix *mat, Matrix *b)
     {
     if (mat->r != mat->c) return 2;
-    int sum = 0;
+    double sum = 0;
     //x->data[x->r][0] = b->data[b->r][0]/mat->data[mat->r][mat->r];
     for (int i = 0; i < x->r; i++)
     {
-        sum = b->data[b->r - i][0];
+        sum = b->data[b->r - i - 1][0];
         for (int j = 0; j < i; j++)
         {
-            sum -= data[x->r - i][mat->r - j] * x->data[x->r - j][0]; //możliwe ze przy data na odwrot []
+            sum -= mat->data[x->r - i - 1][mat->r - j - 1] * x->data[x->r - j - 1][0]; //możliwe ze przy data na odwrot []
         }
-        if (mat->data[x->r - i][x->r - i] != 0) x->data[x->r-i] = sum/mat->data[x->r - i][x->r - i];
+        if (mat->data[x->r - i - 1][x->r - i - 1] != 0) x->data[x->r - i - 1][0] = sum/mat->data[x->r - i - 1][x->r - i - 1];
         else return 1;
     }
 
