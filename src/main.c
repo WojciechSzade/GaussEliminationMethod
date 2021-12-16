@@ -9,17 +9,17 @@ int main(int argc, char **argv) {
     Matrix * A = readFromFile(argv[1]);
     Matrix * b = readFromFile(argv[2]);
     Matrix * x;
-
+    
     if (A == NULL) return -1;
     if (b == NULL) return -2;
-    printToScreen(A);
-    printToScreen(b);
+    //usuniete, aby output zgadzal sie z testami
+    //printToScreen(A);
+    //printToScreen(b);
 
     res = eliminate(A,b);
     if (res == 1) {
         fprintf(stderr, "Blad! Macierz osobliwa - dzielenie przez 0\n");
     }
-    printToScreen(A);
     x = createMatrix(b->r, 1);
     if (x != NULL) {
         res = backsubst(x,A,b);

@@ -18,6 +18,7 @@ int eliminate(Matrix *mat, Matrix *b) {
             for (int j=0; j<columns; ++j) {
 				mat->data[i][j]-=divider*mat->data[k][j];
             }
+            b->data[i][0]-=divider*b->data[k][0];
         }
     }
 

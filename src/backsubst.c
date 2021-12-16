@@ -5,7 +5,7 @@
  * Zwraca 2 - błąd nieprawidłowych rozmiarów macierzy
  */
 int backsubst(Matrix *x, Matrix *mat, Matrix *b)
-    {
+{
     if (mat->r != mat->c) return 2;
     double sum = 0;
     //x->data[x->r][0] = b->data[b->r][0]/mat->data[mat->r][mat->r];
