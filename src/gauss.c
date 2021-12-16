@@ -35,8 +35,6 @@ int eliminate(Matrix *mat, Matrix *b) {
             b->data[maksC][0] = temp;
         }
         //funkcja porównująca koniec
-        printf("zmieniny elemeny glowny \n");
-        printToScreen(mat);
 		if (mat->data[k][k] == 0) {
 			return 1;
         }
@@ -47,7 +45,7 @@ int eliminate(Matrix *mat, Matrix *b) {
             }
             b->data[i][0]-=divider*b->data[k][0];
         }
-        printToScreen(mat);
+
     }
 
     return 0;

@@ -13,8 +13,8 @@ int main(int argc, char **argv) {
     if (A == NULL) return -1;
     if (b == NULL) return -2;
     //usuniete, aby output zgadzal sie z testami
-    printToScreen(A);
-    printToScreen(b);
+    //printToScreen(A);
+    //printToScreen(b);
 
     res = eliminate(A,b);
     if (res == 1) {
