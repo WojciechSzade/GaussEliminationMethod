@@ -30,6 +30,9 @@ int eliminate(Matrix *mat, Matrix *b) {
             mat->data[k][j] = mat->data[maksC][j];
             mat->data[maksC][j] = temp;
             }
+            temp = b->data[k][0];
+            b->data[k][0] = b->data[maksC][0];
+            b->data[maksC][0] = temp;
         }
         //funkcja porównująca koniec
         printf("zmieniny elemeny glowny \n");
