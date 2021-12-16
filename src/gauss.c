@@ -44,6 +44,7 @@ int eliminate(Matrix *mat, Matrix *b) {
             }
             b->data[i][0]-=divider*b->data[k][0];
         }
+        printToScreen(mat);
     }
 
     return 0;
