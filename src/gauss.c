@@ -10,7 +10,7 @@ int eliminate(Matrix *mat, Matrix *b) {
 
     for (int k=0; k<columns; ++k) {
         //funkcja porównująca start
-        int maks = mat->data[k][k];
+        double maks = mat->data[k][k];
         if (maks < 0) maks *= -1;
         int maksC = k;
 		for (int j = k; j < columns; j++)
