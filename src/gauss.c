@@ -32,7 +32,7 @@ int eliminate(Matrix *mat, Matrix *b) {
             }
         }
         //funkcja porównująca koniec
-        //printf("zmieniny elemeny glowny \n");
+        printf("zmieniny elemeny glowny \n");
         printToScreen(mat);
 		if (mat->data[k][k] == 0) {
 			return 1;
