@@ -1,6 +1,6 @@
 #!/bin/bash
 fails=0
-for i in {0..9}
+for i in {0..10}
 do
 	./bin/gauss ./dane/A$i ./dane/b$i > ./dane/output.out
 	DIFF=$(diff -w ./dane/output.out ./dane/odp$i)

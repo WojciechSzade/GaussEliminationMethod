@@ -3,44 +3,48 @@
  * Zwraca 0 - elimnacja zakonczona sukcesem
  * Zwraca 1 - macierz osobliwa - dzielenie przez 0
  */
+
+int select_max_row(Matrix *mat, int column) {
+    double mx = -DBL_MAX;
+    int row = column;
+    for (int i=column; i<mat->r; ++i) {
+		if (mat->data[i][column]>mx) {
+			row = i;
+			mx = mat->data[i][column];
+		} else if (-mat->data[i][column]>mx) {
+			row = i;
+			mx = -mat->data[i][column];
+		}
+    }
+    return row;
+}
+
+void swap_rows(Matrix *mat, int row, Matrix *b) {
+	int row_to_swap = select_max_row(mat, row);
+	double tmp;
+	for (int i=0; i<mat->r; ++i) {
+		tmp = mat->data[row][i];
+		mat->data[row][i]=mat->data[row_to_swap][i];
+		mat->data[row_to_swap][i]=tmp;
+	}
+	tmp = b->data[row][0];
+	b->data[row][0]=b->data[row_to_swap][0];
+	b->data[row_to_swap][0]=tmp;
+}
+
 int eliminate(Matrix *mat, Matrix *b) {
     int rows=mat->r, columns=mat->c;
     double divider;
 
     for (int k=0; k<columns; ++k) {
-        //funkcja porównująca start
-        double maks = mat->data[k][k];
-        if (maks < 0) maks *= -1;
-        int maksC = k;
-		for (int j = k; j < columns; j++)
-        {
-        if (maks < mat->data[j][k] || maks < -1*mat->data[j][k])
-        {
-            maks = mat->data[j][k];
-            maksC = j;
-        }
-        if (maks < 0) maks *= -1;
-        }
-        double temp = 0;
-        if (maksC != 0) {
-            for (int j = 0; j < rows; j++)
-            {
-            temp = mat->data[k][j];
-            mat->data[k][j] = mat->data[maksC][j];
-            mat->data[maksC][j] = temp;
-            }
-            temp = b->data[k][0];
-            b->data[k][0] = b->data[maksC][0];
-            b->data[maksC][0] = temp;
-        }
-        //funkcja porównująca koniec
-		if (mat->data[k][k] == 0) {
-			return 1;
+        swap_rows(mat, k, b);
+        if (mat->data[k][k] == 0) {
+            return 1;
         }
         for (int i=k+1; i<rows; ++i) {
             divider=mat->data[i][k]/mat->data[k][k];
             for (int j=0; j<columns; ++j) {
-				mat->data[i][j]-=divider*mat->data[k][j];
+                mat->data[i][j]-=divider*mat->data[k][j];
             }
             b->data[i][0]-=divider*b->data[k][0];
         }
