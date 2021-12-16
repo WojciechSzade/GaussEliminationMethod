@@ -9,7 +9,31 @@ int eliminate(Matrix *mat, Matrix *b) {
     double divider;
 
     for (int k=0; k<columns; ++k) {
-		// tu bedzie funkcja do wyboru elementu glownego 
+        //funkcja porównująca start
+        int maks = mat->data[k][k];
+        if (maks < 0) maks *= -1;
+        int maksC = k;
+		for (int j = k; j < columns; j++)
+        {
+        if (maks < mat->data[j][k] || maks < -1*mat->data[j][k])
+        {
+            maks = mat->data[j][k];
+            maksC = j;
+        }
+        if (maks < 0) maks *= -1;
+        }
+        double temp = 0;
+        if (maksC != 0) {
+            for (int j = 0; j < rows; j++)
+            {
+            temp = mat->data[k][j];
+            mat->data[k][j] = mat->data[maksC][j];
+            mat->data[maksC][j] = temp;
+            }
+        }
+        //funkcja porównująca koniec
+        //printf("zmieniny elemeny glowny \n");
+        printToScreen(mat);
 		if (mat->data[k][k] == 0) {
 			return 1;
         }
