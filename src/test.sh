@@ -7,7 +7,12 @@ do
 	if [ "$DIFF" != "" ] 
 	then
 		fails=fails+1;
-		echo test $i failed
+		echo ------------------test $i failed-------------------
+		echo "output:"
+		cat ./dane/output.out
+		echo "expected:"
+		cat ./dane/odp$i
+		echo  --------------------------------------------------
 	fi
 done
 if [ $fails == 0 ] 
